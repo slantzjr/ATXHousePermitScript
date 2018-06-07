@@ -27,7 +27,7 @@ r = HTMLSession().get(url)
 soup = BeautifulSoup(r.text, "lxml")
 site_parse = ''
 for element in soup.body.find_all('span'):
-  site_parse += element.text
+	site_parse += element.text
 
 diff = difflib.ndiff(str.split(f.read()), str.split(site_parse))
 
@@ -38,7 +38,7 @@ for value in diff:
 	print(value)
 print('Has changes: ' + str(hasChanges))
 
-# Update the saved file. I know I join something that was once a string here...
+# Update the saved file. I know I join something that was once a string here... probably bad
 f.seek(0)
 f.write(site_parse)
 f.truncate()
